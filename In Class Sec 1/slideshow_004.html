@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Absolute and Relative Position</title>
+		
+		<style type="text/css">
+			.box {
+				width: 200px;
+				height: 200px;
+				background-color: rgba(255,0,0,0.5);
+				border: 0px solid #000;
+				transition: 1s;	
+			}
+			
+			.special {
+				border: 10px solid #000;
+				background-color: rgba(0, 255, 0, 1);
+			}
+			
+			#b {
+				position: absolute;
+				left: -150px;
+			}
+			
+			#b.show {
+				left: 50px;
+			}
+			
+			p {
+				font-size: 36px;
+			}
+			
+			em {
+				color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="a" class="box"></div>
+		
+		<p>Click the box, I dare you. You knew it would do something. Here the box is 
+		receiving a click event. What's really important here is how the box gets it
+		click event. In this case the event was added via JS, not inline via the 
+		attribute. Looks closely and confirm this for yourself. </p>
+		<p>Even more importantly is how the box targets itself to add the special class. 
+		When the function is invoked, by clicking the box. The box targets itself using 
+		the keyword <em>this</em>. Which is a very special word in JS. Since the function added 
+		to the box object, when that function is invoked <em>this</em> will always 
+		refer to the owner of the function. Notice the emphasis, yes <em>this</em> is 
+		that important</p>
+		
+		<div id="b" class="box"></div>
+		
+			
+		<script>
+			document.getElementById("a").onclick = function() {
+				console.log("click me", this);
+				this.classList.toggle('special');
+			}
+			
+			document.getElementById("b").onclick = function() {
+				console.log("click me", this);
+				this.classList.toggle('show');
+			}
+		</script>
+	</body>
+</html>

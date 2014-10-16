@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<title></title>
+		<script type="text/javascript" src='jquery-1.4.4.min.js'></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#slides div').css('top','200px'); 	// Move divs 200px down
+				$('ul li').click(function(){			
+					var index = $(this).index();		// get the index of the item clicked
+					// This script slides all of the divs down
+					// Then slides the div at index up
+					$('#slides div').css('zIndex','auto').stop().animate({top:'200px'}).eq(index).css('zIndex','100').stop().animate({top:'0'});
+					// Note: I set the z-index of the current div to 100 moving in front of the other clips.
+				});
+			});
+		</script>
+		<style type="text/css">
+			#wrap {
+				margin:auto;
+				width:600px;
+			}
+			#slides {
+				position:relative;
+				width:600px;
+				height:200px;
+				border:3px solid #000;
+				overflow:hidden;
+			}
+			.box {
+				position: absolute;
+				width:600px;
+				height:200px;
+				
+			}
+			#a {
+				background-color:aqua;
+			}
+			#b {
+				background-color:blue;
+			}
+			#c {
+				background-color:fuchsia;
+			}
+			#d {
+				background-color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='wrap'>
+			<div id='slides'>
+				<div id='a' class='box'></div>
+				<div id='b' class='box'></div>
+				<div id='c' class='box'></div>
+				<div id='d' class='box'></div>
+			</div>
+			
+			<ul>
+				<li>AAAA</li>
+				<li>BBBB</li>
+				<li>CCCC</li>
+				<li>DDDD</li>
+			</ul>
+		</div>
+	</body>
+</html>

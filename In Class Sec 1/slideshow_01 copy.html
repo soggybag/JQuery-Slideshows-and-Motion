@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Slide Show</title>
+		
+		<style>
+			#slide-show {
+				width: 960px;
+				height: 300px;
+				position: relative;
+				margin: auto;
+			}
+			.slide-image > img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+			}
+			
+			.slide-caption > div {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 960px;
+				background-color: rgba(255,255,255,0.7);
+			}
+			
+			.slide-next {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 40px;
+				height: 300px;
+				background-color: rgba(0,0,0,0.3);
+			}
+			
+			.slide-prev {
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 40px;
+				height: 300px;
+				background-color: rgba(0,0,0,0.3);
+			}
+			
+			.slide-icons {
+				position: absolute;
+				left: 10px;
+				bottom: 10px;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.slide-icons > li {
+				float: left;
+				padding: 10px;
+				margin-right: 1px;
+				background-color: rgba(255,255,255,0.7);
+				cursor: pointer;
+			}
+			
+			.button-selected {
+				background-color: rgba(0,0,0,0.3) !important;
+				color: rgba(255,255,255,1);
+			}
+			
+			.slide-show {
+				opacity: 1 !important;
+			}
+		
+			
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="slide-show">
+				<div class="slide-image">
+					<img class="slide" src="images/leaf_1.jpg" width="960" height="300">
+					<img class="slide" src="images/leaf_2.jpg" width="960" height="300">
+					<img class="slide" src="images/leaf_3.jpg" width="960" height="300">
+					<img class="slide" src="images/leaf_4.jpg" width="960" height="300">
+					<img class="slide" src="images/leaf_5.jpg" width="960" height="300">
+					<img class="slide" src="images/leaf_6.jpg" width="960" height="300">
+				</div>
+				<div class="slide-caption">
+					<div>
+						<h3>Leaf one</h3>
+						<p>This is a caption describing a leaf</p>
+					</div>
+					<div>
+						<h3>Leaf two</h3>
+						<p>This is not a leaf!</p>
+					</div>
+					<div>
+						<h3>Leaf three</h3>
+						<p>The leaf is green</p>
+					</div>
+					<div>
+						<h3>Leaf four</h3>
+						<p>There is nothing greener than a leaf</p>
+					</div>
+					<div>
+						<h3>Leaf five</h3>
+						<p>Captions are fun and exciting to write</p>
+					</div>
+					<div>
+						<h3>Leaf six</h3>
+						<p>This is the last caption</p>
+					</div>
+				</div>
+				<div class="slide-next"></div>
+				<div class="slide-prev"></div>
+				<ul class="slide-icons">
+					<li class="slide-button">1</li>
+					<li class="slide-button">2</li>
+					<li class="slide-button">3</li>
+					<li class="slide-button">4</li>
+					<li class="slide-button">5</li>
+					<li class="slide-button">6</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<script>
+			var buttons = document.getElementsByClassName("slide-button");
+			var slides = document.getElementsByClassName("slide");
+			
+			
+			// Slides 
+			slides[0].classList.add("slide-show");
+			
+			
+			// buttons
+			for (var i = 0; i < buttons.length; i++) {
+				// console.log(buttons[i]);
+				buttons[i].onmouseup = click_button;
+			}
+			
+			function click_button() {
+				for (var i = 0; i < buttons.length; i++) {
+					buttons[i].classList.remove("button-selected");
+				}
+				this.classList.add("button-selected");
+			}
+			
+		</script>
+	</body>
+</html>

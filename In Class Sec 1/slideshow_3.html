@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Slide Show</title>
+		<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.8.16.custom.min.js"></script>
+		<script type="text/javascript">
+			var index = 0;
+			var it; 		// current img
+			
+			function show_slide( n ) {
+				var position = $("#slide-show>.slide-image>img").eq(n).position();
+				var x = -position.left+"px";
+				var y = -position.top+"px";
+				$("#slide-show>.slide-image").stop().animate({left:x, top:y});
+				
+				$("#slide-show>.slide-caption>div").eq(n).fadeIn().siblings().fadeOut();
+				$("#slide-show>.slide-icons>li").removeClass("selected").eq(n).addClass("selected");
+				
+				index = n;
+			}
+			
+			function next(){
+				index ++;
+				if ( index > 5 ){
+					index = 0;
+				}
+				show_slide(index);
+			}
+			
+			function prev(){
+				index --;
+				if ( index < 0 ) {
+					 index = 5;
+				}
+				show_slide(index);
+			}
+			
+			$(document).ready(function(){
+				$("#slide-show>.slide-next").click(next);
+				$("#slide-show>.slide-prev").click(prev);
+				$("#slide-show>.slide-icons>li").click(function(){
+					show_slide( $(this).index() );
+				});
+				show_slide( index );
+			});			
+		</script>
+		
+		<style type="text/css">
+		
+			#wrap {
+				width:1024px;
+				height:3347px;
+				margin:auto;
+				background:url(images/Page.png);
+				position:relative;
+			}
+		
+			#slide-show {
+				position:absolute;
+				top:160px;
+				left:30px;
+				width:960px;
+				height:300px;
+				border:3px solid black;
+				background:red;
+				overflow: hidden;
+			}
+			
+			#slide-show>.slide-image {
+				position: absolute;
+				width:	2880px;
+				height:	300px;
+			}
+			
+			#slide-show>.slide-image>img {
+				float:left;
+			}
+			
+			#slide-show>.slide-caption>div {
+				position:absolute;
+				top:0;
+				right:0;
+				background:rgba(0,255,0,0.5);
+				width:960px;
+			}
+			
+			#slide-show>.slide-next, #slide-show>.slide-prev {
+				position:absolute;
+				width:64px;
+				height:64px;
+				background: rgba(255,255,255,0.5);
+				top:135px;
+				cursor:pointer;
+			}
+			
+			#slide-show>.slide-next:hover, #slide-show>.slide-prev:hover {
+				background-position: bottom left;
+			}
+			
+			#slide-show>.slide-next {
+				right:0;
+				background:url(images/next.png);
+			}
+			
+			#slide-show>.slide-prev {
+				left:0;
+				background:url(images/prev.png);
+			}
+			
+			#slide-show>ul.slide-icons {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				margin:0;
+				padding:0;
+				list-style-type: none;
+			}
+			
+			#slide-show>ul.slide-icons>li {
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				user-select:none;
+				cursor:pointer;
+				float:left;
+				width:32px;
+				height:32px;
+				background: rgba(255,255,255,0.5);
+				margin:2px;
+				text-align: center;
+				line-height: 32px;
+			}
+			
+			#slide-show>ul.slide-icons>li.selected {
+				background:#000;
+				color:#FFF;
+			}
+			
+			#slide-show>ul.slide-icons>li:hover {
+				background: rgba(0,0,0,0.5);
+				color:#FFF;
+			}
+			
+			#slide-show>ul.slide-icons>li:active {
+				background: rgba(255,0,0,0.5);
+				color:#FFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="slide-show">
+				<div class="slide-image">
+					<img src="images/leaf_1.jpg" width="960" height="300" />
+					<img src="images/leaf_2.jpg" width="960" height="300" />
+					<img src="images/leaf_3.jpg" width="960" height="300" />
+					<img src="images/leaf_4.jpg" width="960" height="300" />
+					<img src="images/leaf_5.jpg" width="960" height="300" />
+					<img src="images/leaf_6.jpg" width="960" height="300" />
+				</div>
+				<div class="slide-caption">
+					<div>
+						<h3>Leaf one</h3>
+						<p>This is a caption describing a leaf</p>
+					</div>
+					<div>
+						<h3>Leaf two</h3>
+						<p>This is not a leaf!</p>
+					</div>
+					<div>
+						<h3>Leaf three</h3>
+						<p>The leaf is green</p>
+					</div>
+					<div>
+						<h3>Leaf four</h3>
+						<p>There is nothing greener than a leaf</p>
+					</div>
+					<div>
+						<h3>Leaf five</h3>
+						<p>Captions are fun and exciting to write</p>
+					</div>
+					<div>
+						<h3>Leaf six</h3>
+						<p>This is the last caption</p>
+					</div>
+				</div>
+				<div class="slide-next"></div>
+				<div class="slide-prev"></div>
+				<ul class="slide-icons">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

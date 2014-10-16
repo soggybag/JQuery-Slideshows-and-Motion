@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<title></title>
+		<script type="text/javascript" src='jquery-1.4.4.min.js'></script>
+		<script type="text/javascript">
+			// global variables 
+			var image_index = 0;	// holds the current image index
+			
+			function show_image( index ) {
+				// Get the current currently visible div and slide it off
+				var it = $('#slides div').eq( image_index ); 															// get the current div
+				$(it).css('zIndex','auto').stop().animate({left:'600px'},400,function(){$(this).css('left','-600px')}); // hide it
+				
+				// Get the new image and show it
+				image_index = index;																		// save the index of the current image
+				it = $('#slides>div').eq(image_index).css('zIndex','100').stop().animate({left:'0'},400);	// show the current image
+			}
+		
+			// JQuery document ready
+			$(document).ready(function(){					
+				$('#slides div').eq( image_index ).siblings().css('left','-600px');
+				show_image( image_index );
+				
+				$('ul li').click(function(){
+					var index = $(this).index();
+					show_image( index );
+				});
+			});
+		</script>
+		<style type="text/css">
+			#wrap {
+				margin:auto;
+				width:600px;
+			}
+			#slides {
+				position:relative;
+				width:600px;
+				height:200px;
+				border:3px solid #000;
+				overflow:hidden;
+			}
+			.box {
+				position: absolute;
+				width:600px;
+				height:200px;
+				
+			}
+			#a {
+				background-color:aqua;
+			}
+			#b {
+				background-color:blue;
+			}
+			#c {
+				background-color:fuchsia;
+			}
+			#d {
+				background-color:green;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id='wrap'>
+			<div id='slides'>
+				<div id='a' class='box'><h1>Aqua</h1></div>
+				<div id='b' class='box'><h1>Blue</h1></div>
+				<div id='c' class='box'><h1>Fuchsia</h1></div>
+				<div id='d' class='box'><h1>Green</h1></div>
+			</div>
+			
+			<ul>
+				<li>Aqua</li>
+				<li>Blue</li>
+				<li>Fuchsia</li>
+				<li>Green</li>
+			</ul>
+		</div>
+	</body>
+</html>

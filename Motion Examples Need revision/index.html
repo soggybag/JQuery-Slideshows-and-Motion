@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<title></title>
+		<script type="text/javascript" src='jquery-1.4.4.min.js'></script>
+		<!-- import JQuery UI after JQuery -->
+		<script type="text/javascript" src='jquery-ui-1.8.10.custom.min.js'></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('body').css({backgroundColor:'red'});
+			
+				$('#slides div').css('left','600px');
+				$('ul li').click(function(){
+					var index = $(this).index();
+					// http://jqueryui.com/demos/effect/easing.html
+					// Set the z-index of each div to it's original value, then animate to 600px left
+					$('#slides div').css('zIndex','auto').stop().animate({left:'600px'});
+					// Next find the target div set the z-index to 100 and animate to 0 left
+					// Note I included easeOutElastic
+					$('#slides div').eq(index).css('zIndex','100').stop().animate({left:'0'}, 1000, 'easeOutElastic');
+
+					// The two lines above could have been combined 
+					// $('#slides div').css('zIndex','auto').stop().animate({left:'600px'}).eq(index).css('zIndex','100').stop().animate({left:'0'}, 1000, 'easeOutElastic');
+				});
+			});
+		</script>
+		<style type="text/css">
+			#wrap {
+				margin:auto;
+				width:600px;
+			}
+			#slides {
+				position:relative;
+				width:600px;
+				height:200px;
+				border:3px solid #000;
+				overflow:hidden;
+			}
+			.box {
+				position: absolute;
+				width:600px;
+				height:200px;
+				
+			}
+			#a {
+				background-color:aqua;
+			}
+			#b {
+				background-color:blue;
+			}
+			#c {
+				background-color:fuchsia;
+			}
+			#d {
+				background-color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='wrap'>
+			<div id='slides'>
+				<div id='a' class='box'></div>
+				<div id='b' class='box'></div>
+				<div id='c' class='box'></div>
+				<div id='d' class='box'></div>
+			</div>
+			
+			<ul>
+				<li>AAAA</li>
+				<li>BBBB</li>
+				<li>CCCC</li>
+				<li>DDDD</li>
+			</ul>
+		</div>
+	</body>
+</html>
