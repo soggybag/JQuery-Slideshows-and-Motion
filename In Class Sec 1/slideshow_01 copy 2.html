@@ -20,7 +20,6 @@
 				position: absolute;
 				left: 0;
 				top: 0;
-				transition: 400ms;
 			}
 			
 			.slide-caption {
@@ -88,6 +87,20 @@
 				color: rgba(255, 255, 255, 1.0);
 				background-color: rgba(0, 0, 0, 0.7);
 			}
+			
+			
+			/* Slideshow animation */
+			
+			.slide {
+				-webkit-animation: cycle 2s linear infinite;
+			}
+			
+			@keyframes cycle {
+				0% { left: 0; }
+				100% { left: -960px; }
+			}
+			
+			
 		</style>
 	</head>
 	<body>
@@ -159,21 +172,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script>
 			$(function(){
-				$(".slide").eq(0).siblings().addClass("hide-slide");
-				$(".slide-buttons>li").click(function(){
-					var index = $(this).index();
-					/*
-					$(".slide")
-						.eq(index)
-						.removeClass("hide-slide")
-						.addClass("show-slide")
-						.siblings()
-						.removeClass("show-slide")
-						.addClass("hide-slide");
-					*/
-					
-					
-				});
+				
 			});
 		</script>
 	</body>
