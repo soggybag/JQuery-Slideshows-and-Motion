@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Absolute and Relative Position</title>
+
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        
+        .special {
+            border: 10px solid #000;
+        }
+        
+        p {
+            font-size: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a" class="box"></div>
+    <button id="click" onclick="click_button()">Click me</button>
+
+    <p>Clicking the button changes the appearance of the box by adding a new class. Use the inpsector to inspect the box. Click the button and see the new class is added to the element. Refresh the page to start over.</p>
+
+
+    <script>
+function click_button() { // This line prints a message to the console. console.log("Clicked!"); // Select the element by it's id name and add a new class to that element. document.getElementById("a").classList.add('special'); // Try commenting the line above and uncommenting one of the lines below. // Use the inspector to help figure out what is going on with these two examples. // document.getElementById("a").classList.toggle('special'); // document.getElementById("a").classList.remove('box'); };
+    </script>
+</body>
+
+</html>

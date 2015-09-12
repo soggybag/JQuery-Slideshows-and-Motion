@@ -1,179 +1,186 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Slide Show</title>
-		
-		<style>
-			#wrap {
-				width: 960px;
-				margin: auto;
-			}
-			
-			.slide-show {
-				width: 960px;
-				height: 300px;
-				overflow: hidden;
-				position: relative;
-			}
-			
-			.slide {
-				position: absolute;
-				left: 0;
-				top: 0;
-			}
-			
-			.slide-caption {
-				position: absolute;
-				left: 0;
-				top: 30px;
-				background-color: rgba(255, 255, 255, 0.7);
-				padding: 10px 17px;
-			}
-			.slide-caption h3, .slide-caption p {
-				margin: 0;
-			}
-			
-			.slide-next {
-				width: 64px;
-				height: 64px;
-				position: absolute;
-				right: 0;
-				top: 118px;
-				background-image: url(images/next.png);
-			}
-			
-			.slide-prev {
-				width: 64px;
-				height: 64px;
-				position: absolute;
-				left: 0;
-				top: 118px;
-				background-image: url(images/prev.png);
-			}
-			
-			.slide-buttons {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				position: absolute;
-				bottom: 0;
-			}
-			
-			.slide-buttons li {
-				float: left;
-				background: rgba(255, 255, 255, 0.7);
-				width: 24px;
-				height: 24px;
-				line-height: 24px;
-				text-align: center;
-				margin-right: 1px;
-				cursor: pointer;
-			}
-			
-			.show-slide {
-				opacity: 1;
-			}
-			
-			.hide-slide {
-				opacity: 0;
-			}
-			
-			.off-left {
-				left: -960px;
-			}
-			
-			
-			.selected-button {
-				color: rgba(255, 255, 255, 1.0);
-				background-color: rgba(0, 0, 0, 0.7);
-			}
-			
-			
-			/* Slideshow animation */
-			
-			.slide {
-				-webkit-animation: cycle 2s linear infinite;
-			}
-			
-			@keyframes cycle {
-				0% { left: 0; }
-				100% { left: -960px; }
-			}
-			
-			
-		</style>
-	</head>
-	<body>
-		<div id="wrap">
-			<div class="slide-show">
-				<div class="slides">
-					<div class="slide">
-						<img src="images/leaf_1.jpg" width="960" height="300">
-						<div class="slide-caption">
-							<h3>Leaf one</h3>
-							<p>This is a caption describing a leaf</p>
-						</div>
-					</div>
-					
-					<div class="slide">
-						<img src="images/leaf_2.jpg" width="960" height="300">
-						<div class="slide-caption">
-							<h3>Leaf Two</h3>
-							<p>This is not a leaf!</p>
-						</div>
-					</div>
-					
-					<div class="slide">
-						<img src="images/leaf_3.jpg" width="960" height="300">
-						<div class="slide-caption">
-							<h3>Leaf Three</h3>
-							<p>The leaf is green</p>
-						</div>
-					</div>
-					
-					<div class="slide">
-						<img src="images/leaf_4.jpg" width="960" height="300">
-						<div class="slide-caption">
-							<h3>Leaf Four</h3>
-							<p>There is nothing greener than a leaf</p>
-						</div>
-					</div>
-					
-					<div class="slide">
-						<img src="images/leaf_5.jpg" width="960" height="300">
-						<div class="slide-caption">
-							<h3>Leaf Five</h3>
-							<p>Captions are fun and exciting to write</p>
-						</div>
-					</div>
-					
-					<div class="slide">
-						<img src="images/leaf_6.jpg" width="960" height="300">
-						<div class="slide-caption">
-							<h3>Leaf six</h3>
-							<p>This is the last caption</p>
-						</div>
-					</div>
-				</div>
-				<div class="slide-controls">
-					<div class="slide-next"></div>
-					<div class="slide-prev"></div>
-					<ul class="slide-buttons">
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>6</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script>
-			$(function(){
-				
-			});
-		</script>
-	</body>
+
+<head>
+    <title>Slide Show</title>
+
+    <style>
+        #wrap {
+            width: 960px;
+            margin: auto;
+        }
+        
+        .slide-show {
+            width: 960px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            left: 0;
+            top: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 17px;
+        }
+        
+        .slide-caption h3,
+        .slide-caption p {
+            margin: 0;
+        }
+        
+        .slide-next {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            right: 0;
+            top: 118px;
+            background-image: url(images/next.png);
+        }
+        
+        .slide-prev {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            left: 0;
+            top: 118px;
+            background-image: url(images/prev.png);
+        }
+        
+        .slide-buttons {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            bottom: 0;
+        }
+        
+        .slide-buttons li {
+            float: left;
+            background: rgba(255, 255, 255, 0.7);
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            margin-right: 1px;
+            cursor: pointer;
+        }
+        
+        .show-slide {
+            opacity: 1;
+        }
+        
+        .hide-slide {
+            opacity: 0;
+        }
+        
+        .off-left {
+            left: -960px;
+        }
+        
+        .selected-button {
+            color: rgba(255, 255, 255, 1.0);
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        /* 
+                Slideshow animation 
+            
+            */
+        
+        .slide {
+            -webkit-animation: cycle 2s linear infinite;
+        }
+        
+        @keyframes cycle {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -960px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="slide-show">
+            <div class="slides">
+                <div class="slide">
+                    <img src="images/leaf_1.jpg" width="960" height="300">
+                    <div class="slide-caption">
+                        <h3>Leaf one</h3>
+                        <p>This is a caption describing a leaf</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="images/leaf_2.jpg" width="960" height="300">
+                    <div class="slide-caption">
+                        <h3>Leaf Two</h3>
+                        <p>This is not a leaf!</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="images/leaf_3.jpg" width="960" height="300">
+                    <div class="slide-caption">
+                        <h3>Leaf Three</h3>
+                        <p>The leaf is green</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="images/leaf_4.jpg" width="960" height="300">
+                    <div class="slide-caption">
+                        <h3>Leaf Four</h3>
+                        <p>There is nothing greener than a leaf</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="images/leaf_5.jpg" width="960" height="300">
+                    <div class="slide-caption">
+                        <h3>Leaf Five</h3>
+                        <p>Captions are fun and exciting to write</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="images/leaf_6.jpg" width="960" height="300">
+                    <div class="slide-caption">
+                        <h3>Leaf six</h3>
+                        <p>This is the last caption</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <div class="slide-next"></div>
+                <div class="slide-prev"></div>
+                <ul class="slide-buttons">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(function () {
+
+        });
+    </script>
+</body>
+
 </html>

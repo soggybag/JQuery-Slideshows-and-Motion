@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Absolute and Relative Position</title>
+
+    <style type="text/css">
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 0, 0, 0.5);
+    border: 0px solid #000;
+    transition: 1s; /* Adding the transition property animates changes to the style of this element. */
+}
+
+.special {
+    border: 10px solid #000;
+    background-color: rgba(0, 255, 0, 1);
+}
+
+p {
+    font-size: 36px;
+}
+    </style>
+</head>
+
+<body>
+    <div id="a" class="box"></div>
+    <button id="click" onclick="click_button()">Click me</button>
+
+    <p>Here the button adds a class to the box. The effect is interesting but I don't think you'll like it. 
+        Go ahead click the button.</p>
+    <p>The motion is created by adding the transition property. The style for .box has: transition: 1s. 
+    This says animate any chnages in the css styles of this element over 1 second. </p>
+
+    <script>
+function click_button() { console.log("click me"); // document.getElementById("a").classList.add('special'); document.getElementById("a").classList.toggle('special'); };
+    </script>
+</body>
+
+</html>

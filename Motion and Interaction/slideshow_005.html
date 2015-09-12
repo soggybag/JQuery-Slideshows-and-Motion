@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Absolute and Relative Position</title>
+
+    <style type="text/css">
+.box {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 10px;
+    border: 0px solid #000;
+    transition: 400ms;
+}
+
+.special {
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+}
+
+#a {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#b {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+#c {
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+#d {
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+p {
+    font-size: 36px;
+}
+
+em {
+    color: red;
+}
+    </style>
+</head>
+
+<body>
+<div id="a" class="box"></div>
+<div id="b" class="box"></div>
+<div id="c" class="box"></div>
+<div id="d" class="box"></div>
+
+<p>Here each box listens for events: mouseover, and mouseout. 
+    These events occur when the cursor passes over the element, 
+    mouseover, and when the cursor moves off and element, mouseout. 
+    On a mouse over the class special is added to the element, on 
+    mouse out the class special is removed. </p>
+
+<p></p>
+
+    <script>
+document.getElementById("a").onmouseover = function () { this.classList.add('special'); } document.getElementById("a").onmouseout = function () { this.classList.remove('special'); } document.getElementById("b").onmouseover = function () { this.classList.add('special'); } document.getElementById("b").onmouseout = function () { this.classList.remove('special'); } document.getElementById("c").onmouseover = function () { this.classList.add('special'); } document.getElementById("c").onmouseout = function () { this.classList.remove('special'); } document.getElementById("d").onmouseover = function () { this.classList.add('special'); } document.getElementById("d").onmouseout = function () { this.classList.remove('special'); }
+    </script>
+</body>
+
+</html>

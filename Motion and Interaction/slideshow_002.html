@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Absolute and Relative Position</title>
+
+    <style type="text/css">
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.special {
+    border: 10px solid #000;
+}
+
+p {
+    font-size: 36px;
+}
+    </style>
+</head>
+
+<body>
+    <div id="a" class="box"></div>
+
+    <!-- noticne the onclick attribute, the value calls the function
+        in the script block below -->
+    <button id="click" onclick="click_button()">Click me</button>
+
+    <p>Here the button adds a class to the box. </p>
+
+
+    <script>
+function click_button() { console.log("click me"); // document.getElementById("a").classList.add('special'); document.getElementById("a").classList.toggle('special'); };
+    </script>
+</body>
+
+</html>

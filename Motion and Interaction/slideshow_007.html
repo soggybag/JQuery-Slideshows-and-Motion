@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Absolute and Relative Position</title>
+
+    <style type="text/css">
+        .box {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 0px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .box > div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 100px;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: 400ms;
+        }
+        
+        .special > div {
+            top: 0;
+        }
+        
+        #a {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        
+        #b {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+        
+        #c {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+        
+        #d {
+            background-color: rgba(255, 255, 0, 0.5);
+        }
+        
+        p {
+            font-size: 36px;
+        }
+        
+        em {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a" class="box">
+        <div></div>
+    </div>
+    <div id="b" class="box">
+        <div></div>
+    </div>
+    <div id="c" class="box">
+        <div></div>
+    </div>
+    <div id="d" class="box">
+        <div></div>
+    </div>
+
+    <p>Here the inner element (div) is animated. Note the use of relative position on the parent (.box) and absolute position on it's child (div). This makes the child reference it's position from the coordinate space of the
+        <u>relative</u> parent.</p>
+
+    <p>Also, notice the class special is applied to the parent element. Look closely at the style rule: .special > div. This rule applies to the child div when it's parent has the class special. </p>
+
+    <script>
+        document.getElementById("a").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("a").onmouseout = function () {
+            this.classList.remove('special');
+        }
+        document.getElementById("b").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("b").onmouseout = function () {
+            this.classList.remove('special');
+        }
+        document.getElementById("c").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("c").onmouseout = function () {
+            this.classList.remove('special');
+        }
+        document.getElementById("d").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("d").onmouseout = function () {
+            this.classList.remove('special');
+        }
+    </script>
+</body>
+
+</html>

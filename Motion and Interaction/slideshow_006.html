@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Absolute and Relative Position</title>
+
+    <style type="text/css">
+        .box {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 0px solid #000;
+            transition: 400ms;
+        }
+        
+        .special {
+            -webkit-transform: scale(1.25) rotateZ(15deg);
+            -moz-transform: scale(1.25) rotateZ(15deg);
+        }
+        
+        #a {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        
+        #b {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+        
+        #c {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+        
+        #d {
+            background-color: rgba(255, 255, 0, 0.5);
+        }
+        
+        p {
+            font-size: 36px;
+        }
+        
+        em {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a" class="box"></div>
+    <div id="b" class="box"></div>
+    <div id="c" class="box"></div>
+    <div id="d" class="box"></div>
+
+    <p>Here I used the transform property to add a CSS transformation. There are many transformation. This example uses scale() and rotateZ(). Tranformations can transform an object in 3d also.</p>
+
+    <p></p>
+
+    <script>
+        document.getElementById("a").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("a").onmouseout = function () {
+            this.classList.remove('special');
+        }
+        document.getElementById("b").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("b").onmouseout = function () {
+            this.classList.remove('special');
+        }
+        document.getElementById("c").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("c").onmouseout = function () {
+            this.classList.remove('special');
+        }
+        document.getElementById("d").onmouseover = function () {
+            this.classList.add('special');
+        }
+        document.getElementById("d").onmouseout = function () {
+            this.classList.remove('special');
+        }
+    </script>
+</body>
+
+</html>
