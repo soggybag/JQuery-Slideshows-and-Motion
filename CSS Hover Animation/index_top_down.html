@@ -4,22 +4,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Untitled Document</title>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#wrap ul li').hover(function () {
-                // on mosue over move this element to the left by animating right:0
-                $(this).find('p').stop().animate({
-                    right: 0
-                }, 300);
-            }, function () {
-                // on mouse out move this element to the right with right:-100
-                $(this).find('p').stop().animate({
-                    right: -100
-                }, 300);
-            });
-        });
-    </script>
     <style type="text/css">
         #wrap {
             width: 900px;
@@ -44,13 +28,16 @@
         #wrap ul li p {
             font-family: Arial, Helvetica, sans-serif;
             position: absolute;
-            right: -100px;
-            top: 0;
+            bottom: 100%;
             margin: 0;
             padding: 10px;
             background: rgba(255, 255, 255, .5);
-            width: 100px;
-            height: 290px;
+            width: 290px;
+            -webkit-transition: 400ms;
+        }
+        
+        #wrap ul li:hover p {
+            bottom: calc(100% - 40px);
         }
     </style>
 </head>

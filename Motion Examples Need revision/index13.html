@@ -1,124 +1,149 @@
 <!DOCTYPE html>
 <html lang="">
-	<head>
-		<title></title>
-		<script type="text/javascript" src='jquery-1.4.4.min.js'></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-			
-				// Some variables to keep track of things
-				var slide_index = 0;						// index of the currently displayed "slide"
-				var slide_count = $('#slides div').length;	// total number of "slides"
-				var it = $('#slides div').eq(0);			// reference to the current "slide" element
-				
-				
-				// Add an interval
-				setInterval(next_slide, 5000);
-				// The setInterval takes two parameters
-				// 1) an expression (some JS) that will be executed every interval
-				// 2) the interval, in miliseconds (1000 == 1 second)
-				// The line above sets up an interval that will call the next_slide function 
-				// every 5 secs. 
-				
-				
-				// Some functions to advance to the next or previous "slide" and show the current "slide"
-				function next_slide() {
-					slide_index++;						// Add one to the current slide index
-					if (slide_index == slide_count) {	// Check if we're at the last index
-						slide_index = 0;				// if so loop to the beginning
-					}
-					show_slide(slide_index);			// Display the current "slide"
-				}
-				
-				function prev_slide() {
-					slide_index--;						// Subtract one from the current slide index
-					if (slide_index < 0) {				// If the index is less than 0
-						slide_index = slide_count -1;	// Loop to the last index
-					}
-					show_slide(slide_index);			// Display the current slide
-				}
-				
-				// This function displays the current slide. You provide the index of the slide 
-				function show_slide(index) {
-					// Move the currently displayed slide out of view
-					$(it).css('zIndex','auto').stop().animate({top:'200px'},400,function(){$(this).css('top','-200px')});
-					// Move the new slide into view and save a reference to it
-					it = $('#slides>div').eq(index).css('zIndex','100').stop().animate({top:'0'},400);
-					// Set slide_index to the index of the current slide
-					slide_index = index;
-				}
-			
-				// Use Jquery to set up some properties and events
-				// Move all of the "slides" up
-				$('#slides div').eq(0).siblings().css('top','-200px');
-				
-				// Assign a click event to each list item
-				$('ul li').click(function(){
-					var index = $(this).index();	// Get the index of the list item
-					show_slide(index);				// call show_slide and pass the index
-				});
-				
-				// Assign a click function to the next link
-				$('#next').click(function(){
-					next_slide();
-				});
-				
-				// Assign a click function to the previous link
-				$('#prev').click(function(){
-					prev_slide();
-				});
-			});
-		</script>
-		<style type="text/css">
-			#wrap {
-				margin:auto;
-				width:600px;
-			}
-			#slides {
-				position:relative;
-				width:600px;
-				height:200px;
-				border:3px solid #000;
-				overflow:hidden;
-			}
-			.box {
-				position: absolute;
-				width:600px;
-				height:200px;
-				
-			}
-			#a {
-				background-color:aqua;
-			}
-			#b {
-				background-color:blue;
-			}
-			#c {
-				background-color:fuchsia;
-			}
-			#d {
-				background-color:green;
-			}
-		</style>
-	</head>
-	<body>
-		<div id='wrap'>
-			<div id='slides'>
-				<div id='a' class='box'><h1>Aqua</h1></div>
-				<div id='b' class='box'><h1>Blue</h1></div>
-				<div id='c' class='box'><h1>Fuchsia</h1></div>
-				<div id='d' class='box'><h1>Green</h1></div>
-			</div>
-			
-			<ul>
-				<li>Aqua</li>
-				<li>Blue</li>
-				<li>Fuchsia</li>
-				<li>Green</li>
-			</ul>
-			
-			<p id='next'>Next</p>
-			<p id='prev'>previous</p>
-		</div>
-	</body>
+
+<head>
+    <title></title>
+
+    <!-- Import jQuery from the CDN -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Some variables to keep track of things
+            var slide_index = 0; // index of the currently displayed "slide"
+            var slide_count = $('#slides div').length; // total number of "slides"
+            var it = $('#slides div').eq(0); // reference to the current "slide" element
+
+
+            // Add an interval
+            setInterval(next_slide, 5000);
+            // The setInterval takes two parameters
+            // 1) an expression (some JS) that will be executed every interval
+            // 2) the interval, in miliseconds (1000 == 1 second)
+            // The line above sets up an interval that will call the next_slide function 
+            // every 5 secs. 
+
+
+            // Some functions to advance to the next or previous "slide" and show the current "slide"
+            function next_slide() {
+                slide_index++; // Add one to the current slide index
+                if (slide_index == slide_count) { // Check if we're at the last index
+                    slide_index = 0; // if so loop to the beginning
+                }
+                show_slide(slide_index); // Display the current "slide"
+            }
+
+            function prev_slide() {
+                slide_index--; // Subtract one from the current slide index
+                if (slide_index < 0) { // If the index is less than 0
+                    slide_index = slide_count - 1; // Loop to the last index
+                }
+                show_slide(slide_index); // Display the current slide
+            }
+
+            // This function displays the current slide. You provide the index of the slide 
+            function show_slide(index) {
+                // Move the currently displayed slide out of view
+                $(it).css('zIndex', 'auto').stop().animate({
+                    top: '200px'
+                }, 400, function () {
+                    $(this).css('top', '-200px')
+                });
+                // Move the new slide into view and save a reference to it
+                it = $('#slides>div').eq(index).css('zIndex', '100').stop().animate({
+                    top: '0'
+                }, 400);
+                // Set slide_index to the index of the current slide
+                slide_index = index;
+            }
+
+            // Use Jquery to set up some properties and events
+            // Move all of the "slides" up
+            $('#slides div').eq(0).siblings().css('top', '-200px');
+
+            // Assign a click event to each list item
+            $('ul li').click(function () {
+                var index = $(this).index(); // Get the index of the list item
+                show_slide(index); // call show_slide and pass the index
+            });
+
+            // Assign a click function to the next link
+            $('#next').click(function () {
+                next_slide();
+            });
+
+            // Assign a click function to the previous link
+            $('#prev').click(function () {
+                prev_slide();
+            });
+        });
+    </script>
+    <style type="text/css">
+        #wrap {
+            margin: auto;
+            width: 600px;
+        }
+        
+        #slides {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            border: 3px solid #000;
+            overflow: hidden;
+        }
+        
+        .box {
+            position: absolute;
+            width: 600px;
+            height: 200px;
+        }
+        
+        #a {
+            background-color: aqua;
+        }
+        
+        #b {
+            background-color: blue;
+        }
+        
+        #c {
+            background-color: fuchsia;
+        }
+        
+        #d {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='wrap'>
+        <div id='slides'>
+            <div id='a' class='box'>
+                <h1>Aqua</h1>
+            </div>
+            <div id='b' class='box'>
+                <h1>Blue</h1>
+            </div>
+            <div id='c' class='box'>
+                <h1>Fuchsia</h1>
+            </div>
+            <div id='d' class='box'>
+                <h1>Green</h1>
+            </div>
+        </div>
+
+        <ul>
+            <li>Aqua</li>
+            <li>Blue</li>
+            <li>Fuchsia</li>
+            <li>Green</li>
+        </ul>
+
+        <p id='next'>Next</p>
+        <p id='prev'>previous</p>
+    </div>
+</body>
+
 </html>

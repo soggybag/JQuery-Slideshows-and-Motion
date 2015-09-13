@@ -1,70 +1,95 @@
 <!DOCTYPE html>
 <html lang="">
-	<head>
-		<title></title>
-		<script type="text/javascript" src='jquery-1.4.4.min.js'></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				// Declare a variable to hold a reference to the currently visible div
-				var it = $('#slides div').eq(0); 						// Set it to reference div 0
-				$('#slides div').eq(0).siblings().css('top','-200px');	// hide the other divs
-				$('ul li').click(function(){
-					// Get the index of the new div
-					var index = $(this).index();
-					// Move the last div off the bottom
-					$(it).css('zIndex','auto').stop().animate({top:'200px'},400,function(){$(this).css('top','-200px')});
-					// Move the new div from the top and save a reference
-					it = $('#slides>div').eq(index).css('zIndex','100').stop().animate({top:'0'},400);
-				});
-			});
-		</script>
-		<style type="text/css">
-			#wrap {
-				margin:auto;
-				width:600px;
-			}
-			#slides {
-				position:relative;
-				width:600px;
-				height:200px;
-				border:3px solid #000;
-				overflow:hidden;
-			}
-			.box {
-				position: absolute;
-				width:600px;
-				height:200px;
-				
-			}
-			#a {
-				background-color:aqua;
-			}
-			#b {
-				background-color:blue;
-			}
-			#c {
-				background-color:fuchsia;
-			}
-			#d {
-				background-color:green;
-			}
-		</style>
-	</head>
-	<body>
-		<div id='wrap'>
-			<div id='slides'>
-				<div id='a' class='box'><h1>Aqua</h1></div>
-				<div id='b' class='box'><h1>Blue</h1></div>
-				<div id='c' class='box'><h1>Fuchsia</h1></div>
-				<div id='d' class='box'><h1>Green</h1></div>
-			</div>
-			
-			<ul>
-				<li>Aqua</li>
-				<li>Blue</li>
-				<li>Fuchsia</li>
-				<li>Green</li>
-			</ul>
-		</div>
-	</body>
+
+<head>
+    <title></title>
+
+    <!-- Import jQuery from the CDN -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Declare a variable to hold a reference to the currently visible div
+            var it = $('#slides div').eq(0); // Set it to reference div 0
+            $('#slides div').eq(0).siblings().css('top', '-200px'); // hide the other divs
+            $('ul li').click(function () {
+                // Get the index of the new div
+                var index = $(this).index();
+                // Move the last div off the bottom
+                $(it).css('zIndex', 'auto').stop().animate({
+                    top: '200px'
+                }, 400, function () {
+                    $(this).css('top', '-200px')
+                });
+                // Move the new div from the top and save a reference
+                it = $('#slides>div').eq(index).css('zIndex', '100').stop().animate({
+                    top: '0'
+                }, 400);
+            });
+        });
+    </script>
+    <style type="text/css">
+        #wrap {
+            margin: auto;
+            width: 600px;
+        }
+        
+        #slides {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            border: 3px solid #000;
+            overflow: hidden;
+        }
+        
+        .box {
+            position: absolute;
+            width: 600px;
+            height: 200px;
+        }
+        
+        #a {
+            background-color: aqua;
+        }
+        
+        #b {
+            background-color: blue;
+        }
+        
+        #c {
+            background-color: fuchsia;
+        }
+        
+        #d {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='wrap'>
+        <div id='slides'>
+            <div id='a' class='box'>
+                <h1>Aqua</h1>
+            </div>
+            <div id='b' class='box'>
+                <h1>Blue</h1>
+            </div>
+            <div id='c' class='box'>
+                <h1>Fuchsia</h1>
+            </div>
+            <div id='d' class='box'>
+                <h1>Green</h1>
+            </div>
+        </div>
+
+        <ul>
+            <li>Aqua</li>
+            <li>Blue</li>
+            <li>Fuchsia</li>
+            <li>Green</li>
+        </ul>
+    </div>
+</body>
+
 </html>

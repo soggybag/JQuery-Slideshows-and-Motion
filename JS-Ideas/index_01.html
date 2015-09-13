@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS Functions</title>
+<script type="text/javascript">
+	// Define a variable 
+	var n = 6; // The variable n has a value of 10. Use the keyword var only the first time n appears. 
+	
+	// Write something into a page
+	document.write("<h1>" + n + "</h1>");
+
+	// For loop, repeats code block
+	for (var i = 0; i < n; i++) {
+		// console.log('Currently at ' + i);
+		document.write("<p>Hello " + i + "</p>");
+		document.write("<small>" + getSin( i ) + "</small>");
+	}
+	
+	// Define a function, this makes a reusable block of code.
+	function getSin( n ) {
+		var s = Math.sin( n );
+		return s;	
+	}
+	
+	var sin_value = 0;
+	for ( var count=0; count < 80; count++) {
+		var width = Math.round( ( getSin( sin_value ) * 100 ) + 100 );
+		document.write("<div style='background-color:red; height=10px; width:"+width+"px'>"+ width +"</div>");
+		sin_value += .1;
+	}
+	
+	for (var r = 0; r<360; r+=10) {
+		document.write("<div style='width:100px; height:100px; background-color:rgba(0,0,0,.1); -webkit-transform:rotate("+r+"deg)'></div>");
+	}
+</script>
+</head>
+
+<body>
+	<h1 ="main-header"></h1>
+</body>
+</html>

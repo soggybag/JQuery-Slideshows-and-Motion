@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CSS Hover Example</title>
+    <style type="text/css">
+        #wrap {
+            width: 900px;
+            margin: auto;
+        }
+        
+        #wrap ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #wrap ul li {
+            list-style-type: none;
+            width: 290px;
+            height: 290px;
+            margin: 5px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            /* parent element relative */
+        }
+        
+        #wrap ul li:hover p {
+            bottom: 0;
+        }
+        
+        #wrap ul li p {
+            font-family: Arial, Helvetica, sans-serif;
+            position: absolute;
+            /* use absolute position */
+            
+            bottom: calc(0px - 40px);
+            /* set bottom:0 to stick this to the bottom of it's parent */
+            
+            margin: 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, .5);
+            width: 290px;
+            -webkit-transition: 400ms;
+            /* Use the transition to create motion when properties on this element change. */
+        }
+        
+        p.show {
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='wrap'>
+        <ul>
+            <li>
+                <div><img src="images/IMG_0695.jpg" width="290" height="290" />
+                </div>
+                <p>Motor home</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1000.jpg" width="290" height="290" />
+                </div>
+                <p>High Tension tower</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1002.jpg" width="290" height="290" />
+                </div>
+                <p>Suspension Bridge</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1401.jpg" width="290" height="290" />
+                </div>
+                <p>Yellow Curtains</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1648.jpg" width="290" height="290" />
+                </div>
+                <p>Street Corner</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1673.jpg" width="290" height="290" />
+                </div>
+                <p>Coron Compressor</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1710.jpg" width="290" height="290" />
+                </div>
+                <p>Ocean Weather</p>
+            </li>
+            <li>
+                <div><img src="images/IMG_1845.jpg" width="290" height="290" />
+                </div>
+                <p>BJT Transistors</p>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

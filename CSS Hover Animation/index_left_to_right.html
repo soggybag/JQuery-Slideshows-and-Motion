@@ -4,21 +4,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Untitled Document</title>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#wrap ul li p').css('top', '-100px'); // Position p 100px above the top
-            $('#wrap ul li').hover(function () {
-                $(this).find('p').animate({
-                    top: 0
-                }); // Move the p down to top:0
-            }, function () {
-                $(this).find('p').animate({
-                    top: '-100px'
-                }); // Move the p up 100px
-            });
-        });
-    </script>
     <style type="text/css">
         #wrap {
             width: 900px;
@@ -43,11 +28,18 @@
         #wrap ul li p {
             font-family: Arial, Helvetica, sans-serif;
             position: absolute;
+            left: -100px;
             top: 0;
             margin: 0;
             padding: 10px;
             background: rgba(255, 255, 255, .5);
-            width: 290px;
+            width: 100px;
+            height: 290px;
+            -webkit-transition: 400ms;
+        }
+        
+        #wrap ul li:hover p {
+            left: 0;
         }
     </style>
 </head>

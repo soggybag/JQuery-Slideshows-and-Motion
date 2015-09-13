@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+    <style>
+        #left-sidebar {
+            position: absolute;
+            left: -200px;
+            width: 200px;
+            height: 300px;
+            background-color: #000;
+            transition: 400ms;
+        }
+        
+        #left-sidebar-button {
+            position: absolute;
+            right: -40px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+        }
+        
+        .show-left-sidebar {
+            left: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="left-sidebar">
+        <div id="left-sidebar-button"></div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $("#left-sidebar-button").click(function () {
+            $("#left-sidebar").toggleClass("show-left-sidebar");
+        });
+    </script>
+</body>
+
+</html>
